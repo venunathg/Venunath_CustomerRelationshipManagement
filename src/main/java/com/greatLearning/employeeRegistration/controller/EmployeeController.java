@@ -1,4 +1,4 @@
-package com.greatLearning.customerRegistration.controller;
+package com.greatLearning.employeeRegistration.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -23,62 +23,62 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.greatLearning.customerRegistration.entity.Customer;
-import com.greatLearning.customerRegistration.service.CustomerService;
+import com.greatLearning.employeeRegistration.entity.employee;
+import com.greatLearning.employeeRegistration.service.employeeService;
 
 
 
 
 @Controller
-@RequestMapping("/customers")
-public class CustomerController {
+@RequestMapping("/employees")
+public class EmployeeController {
 
 	@Autowired
-	private CustomerService customerService;
+	private employeeService employeeService;
 
 
 
 	// add mapping for "/list"
 
 	@RequestMapping("/list")
-	public String listCustomers(Model theModel) {
+	public String listemployees(Model theModel) {
 		
 
-		// get customers from db
-		List<Customer> theCustomers = customerService.findAll();
+		// get employees from db
+		List<employee> theemployees = employeeService.findAll();
 
 		// add to the spring model
-		theModel.addAttribute("Customer", theCustomers);
+		theModel.addAttribute("employee", theemployees);
 		
 
-		return "list-Customers";
+		return "list-employees";
 	}
 
 	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 
 		// create model attribute to bind form data
-		Customer theCustomer = new Customer();
+		employee theemployee = new employee();
 
-		theModel.addAttribute("Customer", theCustomer);
+		theModel.addAttribute("employee", theemployee);
 
-		return "Customer-form";
+		return "employee-form";
 	}
 
 	
 	@RequestMapping("/showFormForUpdate")
-	public String showFormForUpdate(@RequestParam("customerId") int theId,
+	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 			Model theModel) {
 
-		// get the Customer from the service
-		Customer theCustomer = customerService.findById(theId);
+		// get the employee from the service
+		employee theemployee = employeeService.findById(theId);
 
 
-		// set Customer as a model attribute to pre-populate the form
-		theModel.addAttribute("Customer", theCustomer);
+		// set employee as a model attribute to pre-populate the form
+		theModel.addAttribute("employee", theemployee);
 
 		// send over to our form
-		return "Customer-form";			
+		return "employee-form";			
 	}
 
 
@@ -87,35 +87,35 @@ public class CustomerController {
 			@RequestParam("firstname") String firstname,@RequestParam("lastname") String lastname,@RequestParam("email") String email) {
 
 		System.out.println(id);
-		Customer theCustomer;
+		employee theemployee;
 		if(id!=0)
 		{
-			theCustomer=customerService.findById(id);
-			theCustomer.setFirstname(firstname);
-			theCustomer.setLastname(lastname);
-			theCustomer.setEmail(email);
+			theemployee=employeeService.findById(id);
+			theemployee.setFirstname(firstname);
+			theemployee.setLastname(lastname);
+			theemployee.setEmail(email);
 		}
 		else
-			theCustomer=new Customer(firstname, lastname, email);
-		// save the Customer
-		customerService.save(theCustomer);
+			theemployee=new employee(firstname, lastname, email);
+		// save the employee
+		employeeService.save(theemployee);
 
 
 		// use a redirect to prevent duplicate submissions
-		return "redirect:/customers/list";
+		return "redirect:/employees/list";
 
 	}
 
 	
 
 	@RequestMapping("/delete")
-	public String delete(@RequestParam("customerId") int theId) {
+	public String delete(@RequestParam("employeeId") int theId) {
 
-		// delete the Customer
-		customerService.deleteById(theId);
+		// delete the employee
+		employeeService.deleteById(theId);
 
-		// redirect to /Customers/list
-		return "redirect:/customers/list";
+		// redirect to /employees/list
+		return "redirect:/employees/list";
 
 	}
 
@@ -125,21 +125,21 @@ public class CustomerController {
 			@RequestParam("lastname") String lastname,
 			Model theModel) {
 
-		// check names, if both are empty then just give list of all Customers
+		// check names, if both are empty then just give list of all employees
 
 		if (firstname.trim().isEmpty() && lastname.trim().isEmpty()) {
-			return "redirect:/customer/list";
+			return "redirect:/employee/list";
 		}
 		else {
 			// else, search by first name and last name
-			List<Customer> theCustomer =
-					customerService.searchBy(firstname, lastname);
+			List<employee> theemployee =
+					employeeService.searchBy(firstname, lastname);
 
 			// add to the spring model
-			theModel.addAttribute("Customer", theCustomer);
+			theModel.addAttribute("employee", theemployee);
 
-			// send to list-Customers
-			return "list-Customers";
+			// send to list-employees
+			return "list-employees";
 		}
 
 	}

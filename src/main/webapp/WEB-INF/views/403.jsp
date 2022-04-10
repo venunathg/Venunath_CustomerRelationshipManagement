@@ -9,6 +9,6 @@
 	<h2>${msg}</h2>
 	
 		<hr>
-		<a href="/CustomerRegistration/customer/list">Back to Customers List</a>
+		<a href="/employeeRegistration/employee/list">Back to Employee List</a>
 </body>
 </html>

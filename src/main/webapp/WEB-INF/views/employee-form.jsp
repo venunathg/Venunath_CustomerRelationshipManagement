@@ -15,25 +15,25 @@
 	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	crossorigin="anonymous">
 
-<title>Save Customer</title>
+<title>Save Employee</title>
 </head>
 
 <body>
 
 	<div class="container">
 
-		<h3>Customer Information</h3>
+		<h3>Employee Information</h3>
 		<hr>
 
-		<p class="h4 mb-4">Enter Customer</p>
+		<p class="h4 mb-4">Enter Employee</p>
 
-		<form action="/CustomerRegistration/customers/save" method="POST">
+		<form action="/employeeRegistration/employees/save" method="POST">
 
 			<!-- Add hidden form field to handle update -->
-			<input type="hidden" name="id" value="${Customer.id}" />
+			<input type="hidden" name="id" value="${employee.id}" />
 
 			<div class="form-inline">
-				<input type="text" name="firstname" value="${Customer.firstname}"
+				<input type="text" name="firstname" value="${employee.firstname}"
 					class="form-control mb-4 col-4" placeholder="firstname">
 
 
@@ -42,7 +42,7 @@
 
 			<div class="form-inline">
 
-				<input type="text" name="lastname" value="${Customer.lastname}"
+				<input type="text" name="lastname" value="${employee.lastname}"
 					class="form-control mb-4 col-4" placeholder="lastname">
 
 
@@ -51,17 +51,17 @@
 
 			<div class="form-inline">
 
-				<input type="text" name="email" value="${Customer.email}"
+				<input type="text" name="email" value="${employee.email}"
 					class="form-control mb-4 col-4" placeholder="email">
 
 
 
 			</div>
 
-			<button type="submit" class="btn btn-info col-2">Save</button>
+			<button type="submit" class="btn btn-info col-2">Update</button>
 			
 					<hr>
-		<a href="/CustomerRegistration/customers/list">Back to Customers List</a>
+		<a href="/employeeRegistration/employees/list">Back to Employee List</a>
 
 		</form>
 

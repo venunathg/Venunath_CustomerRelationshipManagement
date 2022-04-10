@@ -1,4 +1,4 @@
-package com.greatLearning.customerRegistration.entity;
+package com.greatLearning.employeeRegistration.entity;
 
 import java.util.ArrayList;
 import java.util.HashSet;

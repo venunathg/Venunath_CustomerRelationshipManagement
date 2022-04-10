@@ -1,4 +1,4 @@
-package com.greatLearning.customerRegistration.security;
+package com.greatLearning.employeeRegistration.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.greatLearning.customerRegistration.service.UserDetailsServiceImpl;
+import com.greatLearning.employeeRegistration.service.UserDetailsServiceImpl;
 
 
 @Configuration
@@ -44,15 +44,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http.authorizeRequests()
-	           // .antMatchers("/","/customers/save","/customers/showFormForAdd","/customers/403").hasAnyAuthority("USER","ADMIN")
-	            .antMatchers("/customers/showFormForUpdate","/customers/delete").hasAuthority("ADMIN")
+	           // .antMatchers("/","/employees/save","/employees/showFormForAdd","/employees/403").hasAnyAuthority("USER","ADMIN")
+	            .antMatchers("/employees/showFormForUpdate","/employees/delete").hasAuthority("ADMIN")
 	            .anyRequest().authenticated()
 	            .and()
-	            .formLogin().loginProcessingUrl("/login").successForwardUrl("/customers/list").permitAll()
+	            .formLogin().loginProcessingUrl("/login").successForwardUrl("/employees/list").permitAll()
 	            .and()
 	            .logout().logoutSuccessUrl("/login").permitAll()
 	            .and()
-	            .exceptionHandling().accessDeniedPage("/customers/403")
+	            .exceptionHandling().accessDeniedPage("/employees/403")
 	            .and()
 	            .cors().and().csrf().disable();
 	    }

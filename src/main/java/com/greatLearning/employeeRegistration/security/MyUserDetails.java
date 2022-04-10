@@ -1,4 +1,4 @@
-package com.greatLearning.customerRegistration.security;
+package com.greatLearning.employeeRegistration.security;
 
 import java.util.*;
 
@@ -7,8 +7,8 @@ import org.hibernate.mapping.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.greatLearning.customerRegistration.entity.Role;
-import com.greatLearning.customerRegistration.entity.User;
+import com.greatLearning.employeeRegistration.entity.Role;
+import com.greatLearning.employeeRegistration.entity.User;
 
 public class MyUserDetails implements org.springframework.security.core.userdetails.UserDetails {
 

@@ -1,4 +1,4 @@
-package com.greatLearning.customerRegistration.entity;
+package com.greatLearning.employeeRegistration.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

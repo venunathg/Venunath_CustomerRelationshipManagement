@@ -1,9 +1,9 @@
-package com.greatLearning.customerRegistration.repository;
+package com.greatLearning.employeeRegistration.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.greatLearning.customerRegistration.entity.User;
+import com.greatLearning.employeeRegistration.entity.User;
 
 public interface UserRepository extends JpaRepository<User,Long> {
     @Query("SELECT u FROM User u WHERE u.username = ?1")

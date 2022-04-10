@@ -15,14 +15,14 @@
 	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	crossorigin="anonymous">
 
-<title>Customer Information</title>
+<title>Employee Information</title>
 </head>
 
 <body>
 
 	<div class="container">
 
-		<h3>Customer Information</h3>
+		<h3>Employee Information</h3>
 		<hr>
 
 		<!-- Add a search form -->
@@ -31,18 +31,18 @@
 
 
 
-			<form action="/CustomerRegistration/customers/search" class="form-inline">
+			<form action="/employeeRegistration/employees/search" class="form-inline">
 
 				<!-- Add a button -->
-				<a href="/CustomerRegistration/customers/showFormForAdd"
-					class="btn btn-primary btn-sm mb-3"> Add Customer </a> <input
+				<a href="/employeeRegistration/employees/showFormForAdd"
+					class="btn btn-primary btn-sm mb-3"> Add Employee </a> <input
 					type="search" name="firstname" placeholder="firstname"
 					class="form-control-sm ml-5 mr-2 mb-3" /> <input type="search"
 					name="lastname" placeholder="lastname"
 					class="form-control-sm mr-2 mb-3" />
 
 				<button type="submit" class="btn btn-success btn-sm mb-3">Search</button>
-					<a href="/CustomerRegistration/logout" 
+					<a href="/employeeRegistration/logout" 
 					class="btn btn-primary btn-sm mb-3 mx-auto"> Logout </a> 
 
 			</form>
@@ -61,19 +61,19 @@
 			</thead>
 
 			<tbody>
-				<c:forEach items="${Customer}" var="tempCustomer">
+				<c:forEach items="${employee}" var="tempemployee">
 					<tr>
-						<td><c:out value="${tempCustomer.firstname}" /></td>
-						<td><c:out value="${tempCustomer.lastname}" /></td>
-						<td><c:out value="${tempCustomer.email}" /></td>
+						<td><c:out value="${tempemployee.firstname}" /></td>
+						<td><c:out value="${tempemployee.lastname}" /></td>
+						<td><c:out value="${tempemployee.email}" /></td>
 						
 						<td>
 							<!-- Add "update" button/link --> <a
-							href="/CustomerRegistration/customers/showFormForUpdate?customerId=${tempCustomer.id}"
+							href="/employeeRegistration/employees/showFormForUpdate?employeeId=${tempemployee.id}"
 							class="btn btn-info btn-sm"> Update </a> <!-- Add "delete" button/link -->
-							<a href="/CustomerRegistration/customers/delete?customerId=${tempCustomer.id}"
+							<a href="/employeeRegistration/employees/delete?employeeId=${tempemployee.id}"
 							class="btn btn-danger btn-sm"
-							onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">
+							onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
 								Delete </a>
 
 						</td>

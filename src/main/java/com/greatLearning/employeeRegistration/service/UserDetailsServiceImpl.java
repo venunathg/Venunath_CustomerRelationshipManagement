@@ -1,13 +1,13 @@
-package com.greatLearning.customerRegistration.service;
+package com.greatLearning.employeeRegistration.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.greatLearning.customerRegistration.entity.User;
-import com.greatLearning.customerRegistration.repository.UserRepository;
-import com.greatLearning.customerRegistration.security.MyUserDetails;
+import com.greatLearning.employeeRegistration.entity.User;
+import com.greatLearning.employeeRegistration.repository.UserRepository;
+import com.greatLearning.employeeRegistration.security.MyUserDetails;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 

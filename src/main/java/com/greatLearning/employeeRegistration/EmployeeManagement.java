@@ -1,13 +1,13 @@
-package com.greatLearning.customerRegistration;
+package com.greatLearning.employeeRegistration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CustomerRegistration {
+public class EmployeeManagement {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CustomerRegistration.class, args);
+		SpringApplication.run(EmployeeManagement.class, args);
 	}
 
 }

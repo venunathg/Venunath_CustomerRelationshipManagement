@@ -1,4 +1,4 @@
-package com.greatLearning.customerRegistration.entity;
+package com.greatLearning.employeeRegistration.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +13,10 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name="customer")
+@Table(name="employee")
 @Getter
 @Setter
-public class Customer {
+public class employee {
 
 	// define fields
 	
@@ -37,12 +37,12 @@ public class Customer {
 	@Column(name="email")
 	private String email;
 
-	public Customer()
+	public employee()
 	{
 		
 	}
 
-	public Customer(String firstname, String lastname, String email) {
+	public employee(String firstname, String lastname, String email) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
